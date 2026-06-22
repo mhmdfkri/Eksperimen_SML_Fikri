@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+
+training/*.pkl
+
+data/telco_processed.csv

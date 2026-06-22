@@ -1,0 +1,23 @@
+artifact_path: file:///C:/Users/ACER/Desktop/Eksperimen_SML_Fikri/training/mlruns/1/models/m-901bbfb88b6e4d08b7c8d14d54ea95b4/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+mlflow_version: 3.14.0
+model_id: m-901bbfb88b6e4d08b7c8d14d54ea95b4
+model_size_bytes: 5379082
+model_uuid: m-901bbfb88b6e4d08b7c8d14d54ea95b4
+prompts: null
+run_id: 3cb9f1d3a6bf4ac8986669d1af23a8c7
+utc_time_created: '2026-06-20 03:15:11.450401'
