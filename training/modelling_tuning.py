@@ -50,6 +50,14 @@ print(
 os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("DAGSHUB_TOKEN", "")
 os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("DAGSHUB_TOKEN", "")
 
+token = os.getenv("DAGSHUB_TOKEN")
+
+print("TOKEN EXISTS:", token is not None)
+print("TOKEN LENGTH:", len(token) if token else 0)
+
+if token:
+    dagshub.auth.add_app_token(token)
+    
 dagshub.init(
     repo_owner="mhmdfkri",
     repo_name="Eksperimen_SML_Fikri",
