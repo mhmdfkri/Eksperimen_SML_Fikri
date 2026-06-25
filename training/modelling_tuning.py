@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import mlflow
 import mlflow.sklearn
@@ -40,13 +41,24 @@ X_train, X_test, y_train, y_test = train_test_split(
 # MLflow
 # ======================
 
+print(
+    "DAGSHUB TOKEN FOUND:",
+    bool(os.getenv("DAGSHUB_TOKEN"))
+)
+
+# paksa dagshub membaca token
+os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("DAGSHUB_TOKEN", "")
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("DAGSHUB_TOKEN", "")
+
 dagshub.init(
     repo_owner="mhmdfkri",
     repo_name="Eksperimen_SML_Fikri",
     mlflow=True
 )
 
-mlflow.set_experiment("Telco Churn Advanced")
+mlflow.set_experiment(
+    "Telco Churn Advanced"
+)
 
 with mlflow.start_run(
     run_name="RandomForest_Tuning_v1"
@@ -148,9 +160,9 @@ with mlflow.start_run(
     # Log Model
     # ======================
 
-mlflow.sklearn.log_model(
-    sk_model=best_model,
-    name="model"
-)
+    mlflow.sklearn.log_model(
+        sk_model=best_model,
+        name="model"
+    )
 
 print("Training selesai")
