@@ -21,7 +21,7 @@ from sklearn.metrics import (
 # Load Data
 # ======================
 
-df = pd.read_csv("../data/telco_processed.csv")
+df = pd.read_csv("data/telco_processed.csv")
 
 X = df.drop("Churn Label", axis=1)
 y = df["Churn Label"]
